@@ -6,10 +6,13 @@ Notevil is a JavaScript interpreter written in JavaScript. You can use it in pla
 
 ## Usage
 
-Grab the `notevil-browser.min.js` file from this repo and put it in your project.
+Grab the `notevil-browser.min.js` file from this repo and put it in your project. Be sure to add the `meta` tag for UTF-8, as the script contains non-ASCII characters.
 
 ```html
-<script src="notevil-browser.min.js"></script>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script src="notevil-browser.min.js"></script>
+</head>
 ```
 
 Then you can evaluate JavaScript code like this:
