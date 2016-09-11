@@ -4,7 +4,7 @@ which browserify || npm i -g browserify
 which uglifyjs || npm i -g uglifyjs
 
 browserify index.js \
-  | uglifyjs -m -c unsafe=true --support-ie8 --mangle-props --max-line-len 1024 \
+  | uglifyjs -m -c unsafe=true,hoist_vars=true,join_vars=true --support-ie8 --mangle-props \
   > notevil-browser.min.js
 
 cat original-license.js \
