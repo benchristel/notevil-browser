@@ -1,0 +1,31 @@
+{
+  "name": "notevil-browser",
+  "version": "0.0.0",
+  "description": "Ports notevil to the browser",
+  "main": "index.js",
+  "dependencies": {
+    "notevil": "^1.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "open spec.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/benchristel/notevil-browser.git"
+  },
+  "keywords": [
+    "notevil",
+    "browser",
+    "eval",
+    "safe",
+    "not",
+    "evil"
+  ],
+  "author": "Ben Christel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/benchristel/notevil-browser/issues"
+  },
+  "homepage": "https://github.com/benchristel/notevil-browser#readme"
+}

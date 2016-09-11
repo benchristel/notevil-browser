@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>My Jasmine Tests (FIXME)</title>
+
+  <link rel="shortcut icon" type="image/png" href="spec/lib/jasmine-2.0.0/jasmine_favicon.png">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.3.4/jasmine.min.css">
+
+  <!-- Jasmine libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.3.4/jasmine.min.js"
+          type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.3.4/jasmine-html.min.js"
+          type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.3.4/boot.min.js"
+          type="text/javascript"></script>
+
+  <script src="notevil-browser.min.js"></script>
+
+  <script type="text/javascript">
+
+describe('NotEvil', function() {
+  it('evaluates JS code', function() {
+    var code = "(function square(x) { return x * x })(5)"
+    expect(NotEvil.eval(code)).toEqual(25)
+  });
+
+  it('accepts a context object', function() {
+    function square(x) {
+      return x * x;
+    }
+    expect(NotEvil.eval("sq(5)", {sq: square})).toEqual(25)
+  });
+
+  it('allows evaluated code to set properties on the context', function() {
+    var context = {}
+    NotEvil.eval("answer = 42", context)
+    expect(context.answer).toEqual(42)
+  });
+
+  it('even lets you set globals implicitly in strict mode, so watch out', function() {
+    var context = {}
+    NotEvil.eval("'use strict'; answer = 42", context)
+    expect(context.answer).toEqual(42)
+  });
+
+  it('enforces certain other restrictions of strict mode', function() {
+    expect(function() {
+      NotEvil.eval("'use strict'; with({foo: 42}) { answer = 42 }")
+    }).toThrowError('Line 1: Strict mode code may not include a with statement')
+  });
+});
+
+  </script>
+
+</head>
+
+<body>
+</body>
+</html>

@@ -1,0 +1,1 @@
+window.NotEvil = require('notevil');
